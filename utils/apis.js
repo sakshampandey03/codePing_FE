@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000/api/v1", // Or your production base URL
+  baseURL: "https://codeping-be.onrender.com/api/v1", // Or your production base URL
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",

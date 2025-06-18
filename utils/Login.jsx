@@ -13,7 +13,7 @@ const googlelogin = async () => {
     };
     console.log(userData);
 
-    const apiResponse = await fetch("http://localhost:3000/api/v1/login", {
+    const apiResponse = await fetch("https://codeping-be.onrender.com/api/v1/login", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -37,7 +37,7 @@ const googlelogout = async () => {
   try {
     await signOut(auth);
     console.log("google LogOut successful from firebase server");
-    const response = await fetch("http://localhost:3000/api/v1/logout", {
+    const response = await fetch("https://codeping-be.onrender.com/api/v1/logout", {
       method : "POST",
       credentials : "include"
     });
