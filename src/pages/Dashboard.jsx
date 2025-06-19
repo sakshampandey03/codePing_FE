@@ -10,10 +10,12 @@ import {
   Code,
   Trophy,
   Calendar,
-  Settings,
+  UserPen,
   LogOut,
   Home,
 } from "lucide-react";
+
+import ContactForm from "@/components/ui/contact-form.jsx";
 
 import { apiConnector } from "../../utils/apis.js";
 import { googlelogout } from "../../utils/Login.jsx";
@@ -30,6 +32,7 @@ export default function Dashboard() {
   });
   const [tempSettings, setTempSettings] = useState(userSettings);
   const [showApplyButton, setShowApplyButton] = useState(false);
+  const [showContactForm, setShowContactForm] = useState(false);
 
   const [loading, setLoading] = useState(true);
 
@@ -101,7 +104,7 @@ export default function Dashboard() {
     console.log(tempSettings); // log what you're actually applying
 
     const { leetcode_username, codechef, codeforces } = tempSettings;
-    const email = user?.email
+    const email = user?.email;
 
     if (
       tempSettings.leetcode &&
@@ -161,9 +164,12 @@ export default function Dashboard() {
                 <Home className="w-4 h-4" />
                 <span className="hidden sm:inline">Home</span>
               </Button>
-              <Button className="glass-button px-4 py-2 rounded-xl flex items-center gap-2">
-                <Settings className="w-4 h-4" />
-                <span className="hidden sm:inline">Contact Us</span>
+              <Button
+                onClick={() => setShowContactForm(true)}
+                className="glass-button px-4 py-2 rounded-xl flex items-center gap-2"
+              >
+                <Mail className="w-4 h-4" />
+                <span className="hidden sm:inline">Contact</span>
               </Button>
               <Button
                 onClick={handleLogout}
@@ -385,6 +391,9 @@ export default function Dashboard() {
                 </div>
               </div>
             </div>
+
+          {/* contact form modal */}
+           <ContactForm isOpen={showContactForm} onClose={() => setShowContactForm(false)} />
           </div>
         </div>
       </div>
