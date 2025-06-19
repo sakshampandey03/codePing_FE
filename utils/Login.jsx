@@ -11,7 +11,7 @@ const googlelogin = async () => {
       email: user.email,
       avatar: user.photoURL,
     };
-    console.log(userData);
+    // console.log(userData);
 
     const apiResponse = await fetch("https://codeping-be.onrender.com/api/v1/login", {
       method: "POST",
@@ -22,7 +22,7 @@ const googlelogin = async () => {
       body: JSON.stringify(userData),
     });
     const apiResponseData = await apiResponse.json();
-    console.log("logging login api response ", apiResponseData)
+    // console.log("logging login api response ", apiResponseData)
     if (apiResponseData.success) {
       console.log("google login successful at googlelogin frontend", apiResponseData);
       return true;
