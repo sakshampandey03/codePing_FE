@@ -42,7 +42,8 @@ export default function Dashboard() {
       const userResponse = await apiConnector("GET", "/get_user");
       if (!userResponse?.user?.email) {
         console.error("No email found or not logged in");
-        return;
+        setLoading(false);
+        return <div> Unauthorized Access</div>;
       }
 
       const email = userResponse?.user?.email;
@@ -100,7 +101,7 @@ export default function Dashboard() {
     console.log(tempSettings); // log what you're actually applying
 
     const { leetcode_username, codechef, codeforces } = tempSettings;
-    const email = user?.user?.email;
+    const email = user?.email
 
     if (
       tempSettings.leetcode &&
