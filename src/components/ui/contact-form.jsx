@@ -31,12 +31,13 @@ export default function ContactForm({ isOpen, onClose }) {
         return ;
     }
     setIsSubmitting(true)
-    const res = await apiConnector('POST', '/feedback', {
+    const resData = await apiConnector('POST', '/feedback', {
         name : formData.name,
         email : formData.email,
         subject: formData.subject || "feedback",
         message : formData.message
     })
+    const res = resData.json();
     if(res.success){
       setIsSubmitting(false)
       setIsSubmitted(true)
@@ -193,7 +194,7 @@ export default function ContactForm({ isOpen, onClose }) {
                 </div>
                 <div>
                   <h4 className="text-white font-semibold mb-2">Support Email</h4>
-                  <p className="text-[#ADCCED] text-sm">support@codetracker.com</p>
+                  <p className="text-[#ADCCED] text-sm">notify.codeping@gmail.com</p>
                 </div>
               </div>
             </div>
