@@ -37,7 +37,7 @@ export default function ContactForm({ isOpen, onClose }) {
         subject: formData.subject || "feedback",
         message : formData.message
     })
-    console/log("this unparsed api response", resData)
+    console.log("this unparsed api response", resData)
     const res = resData.json();
     console.log("this is the parsed json data ",res)
     if(res.success){
