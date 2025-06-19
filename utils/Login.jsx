@@ -21,9 +21,9 @@ const googlelogin = async () => {
       },
       body: JSON.stringify(userData),
     });
-    console.log("logging login api response ", apiResponse)
-    if (apiResponse.success) {
-      const apiResponseData = apiResponse.json();
+    const apiResponseData = await apiResponse.json();
+    console.log("logging login api response ", apiResponseData)
+    if (apiResponseData.success) {
       console.log("google login successful at googlelogin frontend", apiResponseData);
       return true;
     } else {
