@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Bell, Code, Trophy } from "lucide-react";
 import { googlelogin } from "../../utils/Login";
+import { toast } from "react-toastify";
 
 export default function LandingPage() {
   const [showModal, setShowModal] = useState(false);
