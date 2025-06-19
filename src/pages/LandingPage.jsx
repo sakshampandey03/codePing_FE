@@ -11,8 +11,11 @@ export default function LandingPage() {
   const handleGoogleSignIn = async () => {
   try {
     console.log("Signing in with Google...");
-    await googlelogin(); // waits for login
-    window.location.href = "/dashboard"; // redirect on success
+    const res = await googlelogin(); // waits for login
+    if(res) window.location.href = "/dashboard"; // redirect on success
+    else{ 
+      toast.error("Google Login Failed")
+    }
   } catch (error) {
     console.error("Google Sign-In failed:", error);
     // show a toast or error message here

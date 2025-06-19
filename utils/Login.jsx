@@ -25,11 +25,13 @@ const googlelogin = async () => {
     if (apiResponse.success) {
       const apiResponseData = apiResponse.json();
       console.log(apiResponseData);
+      return true;
     } else {
       throw new Error("Failed to login ");
     }
   } catch (error) {
     console.log(error);
+    return false;
   }
 };
 
