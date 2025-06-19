@@ -21,10 +21,10 @@ const googlelogin = async () => {
       },
       body: JSON.stringify(userData),
     });
-
+    console.log("logging login api response ", apiResponse)
     if (apiResponse.success) {
       const apiResponseData = apiResponse.json();
-      console.log(apiResponseData);
+      console.log("google login successful at googlelogin frontend", apiResponseData);
       return true;
     } else {
       throw new Error("Failed to login ");

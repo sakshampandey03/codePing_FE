@@ -11,14 +11,13 @@ import {
   Trophy,
   Calendar,
   Settings,
-  User,
   LogOut,
   Home,
 } from "lucide-react";
 
 import { apiConnector } from "../../utils/apis.js";
 import { googlelogout } from "../../utils/Login.jsx";
-import e from "cors";
+
 import { toast } from "react-toastify";
 
 export default function Dashboard() {
