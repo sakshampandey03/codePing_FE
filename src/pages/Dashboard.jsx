@@ -10,7 +10,7 @@ import {
   Code,
   Trophy,
   Calendar,
-  UserPen,
+  Mail,
   LogOut,
   Home,
 } from "lucide-react";
