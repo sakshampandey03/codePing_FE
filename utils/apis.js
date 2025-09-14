@@ -1,8 +1,9 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: "https://codeping-be.onrender.com/api/v1", // Or your production base URL
-  withCredentials: true,
+  baseURL: "https://codeping-be.onrender.com/api/v1",
+  // baseURL: "http://localhost:3000/api/v1",
+  withCredentials: true, // default for private routes
   headers: {
     "Content-Type": "application/json",
   },
@@ -13,7 +14,8 @@ export const apiConnector = async (
   url,
   bodyData = null,
   headers = {},
-  params = {}
+  params = {},
+  extraConfig = {}
 ) => {
   try {
     const response = await axiosInstance({
@@ -22,10 +24,11 @@ export const apiConnector = async (
       data: bodyData,
       headers,
       params,
+      ...extraConfig, // override if needed
     });
-    return response.data;
+    return response.data; // ✅ axios already parses JSON
   } catch (error) {
-    console.error("API error:", error);
+    console.error("--------------------API error in apis.js:--------------------------------", error);
     throw error;
   }
 };

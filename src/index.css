@@ -136,3 +136,56 @@
   outline: 2px solid #adcced;
   outline-offset: 2px;
 }
+
+/* HTML: <div class="loader"></div> */
+/* .loader {
+  width: 170px;
+  height: 140px;
+  outline: 12px solid #fff;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 45vh;
+  background:
+    radial-gradient(farthest-side,red 90%,#0000) 0 0/28px 28px no-repeat,
+    radial-gradient(farthest-side,#000 90%,#0000) 0 0/28px 28px no-repeat,
+    linear-gradient(#fff 0 0) 50%/10px 100% no-repeat,
+    conic-gradient(from  90deg at 10px 10px,#0000 90deg,#fff 0),
+    conic-gradient(from -90deg at 60px 30px,#0000 90deg,#fff 0);
+  animation: l9 2s infinite;
+}
+@keyframes l9 {
+  0%    {background-position:50%  100%,0    0   ,50%}
+  12.5% {background-position:0    100%,50%  0   ,50%}
+  25%   {background-position:0    0   ,50%  100%,50%}
+  37.5% {background-position:50%  0   ,100% 100%,50%}
+  50%   {background-position:50%  100%,100% 0   ,50%}
+  62.5% {background-position:100% 100%,50%  0   ,50%}
+  75%   {background-position:100% 0   ,50%  100%,50%}
+  82.5% {background-position:50%  0   ,0    100%,50%}
+  100%  {background-position:50%  100%,0    0   ,50%}
+} */
+/* HTML: <div class="loader"></div> */
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 60px;
+  aspect-ratio: 1;
+  animation: l13-0 2s linear infinite;
+}
+.loader::before,
+.loader::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(at 30% 30%,#0000,#000a) rgb(182, 178, 178);
+  animation: l13-1 1.5s cubic-bezier(.5,-500,.5,500) infinite;
+}
+.loader::after {
+  animation-delay: -0.55s;
+}
+@keyframes l13-0 { 
+  100% { transform:rotate(360deg)} 
+}
+@keyframes l13-1 { 
+  100% { transform:translate(1.5px)} 
+}

@@ -16,6 +16,7 @@ export default defineConfig({
     strictPort: true,
     cors: true,
     open: true,
-    allowedHosts: ['.loca.lt']
+    allowedHosts: ['.loca.lt'],
+    historyApiFallback: true,
   }
 })
